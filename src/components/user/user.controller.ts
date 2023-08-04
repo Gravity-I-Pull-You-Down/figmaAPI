@@ -9,7 +9,7 @@ const getImage = async (req: Request, res: Response) => {
     imageURL =
       'https://drive.google.com/file/d/1WVY17oVcZ92CFyGHD6PdNJIZHvgv2fHE/view';
     const image = await axios.get(imageURL, {
-      // responseType: 'arraybuffer',
+      responseType: 'arraybuffer',
       headers: {
         Accept: 'media',
         cors: 'no-cors',
