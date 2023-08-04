@@ -1,12 +1,13 @@
 {
   "name": "net.ts",
   "version": "1.0.1",
-  "description": "Node Express Template written in TypeScript NET.ts based on nodebestpractices",
+  "description": "Node Express Template written in TypeScript NET.ts based on practicabilities",
   "main": "src/server.ts",
   "engines": {
     "node": ">=8.10.0"
   },
   "scripts": {
+    "start": "ts-node-dev --inspect=0.0.0.0:9229 --exit-child --respawn -r tsconfig-paths/register src/server.ts HTTPS=true SSL_CRT_FILE=server.cert SSL_KEY_FILE=server.key react-scripts start",
     "build": "tsc && tsc-alias",
     "server:prod": "node dist/server.js",
     "server:dev": "ts-node-dev --inspect=0.0.0.0:9229 --exit-child --respawn -r tsconfig-paths/register src/server.ts",
@@ -38,6 +39,7 @@
     "@types/jest": "^27.0.3",
     "@types/morgan": "^1.9.3",
     "apicache": "^1.6.3",
+    "axios": "^1.4.0",
     "dotenv": "^14.3.2",
     "express": "^4.17.1",
     "express-http-context": "^1.2.4",
