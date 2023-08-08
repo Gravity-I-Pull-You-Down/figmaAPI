@@ -8,7 +8,7 @@ const getImage = async (req: Request, res: Response) => {
     console.log(imageURL);
     imageURL =
       'https://drive.google.com/file/d/1WVY17oVcZ92CFyGHD6PdNJIZHvgv2fHE/view';
-    const image = await axios.get(imageURL, {
+    let image: any = await axios.get(imageURL, {
       responseType: 'arraybuffer',
       headers: {
         Accept: 'media',
@@ -16,9 +16,10 @@ const getImage = async (req: Request, res: Response) => {
         origin: 'local',
       },
     });
-    console.log(image);
+    const { data } = image;
+    image = new Uint8Array(data);
     res.status(httpStatus.OK);
-    res.send(image.data);
+    res.send(image);
   } catch (e) {
     console.log(e);
     res.status(httpStatus.INTERNAL_SERVER_ERROR);
