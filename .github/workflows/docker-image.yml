@@ -48,7 +48,7 @@ jobs:
         env:
           GIT_TAG: V0.1
         run: |-
-          docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
-          docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-          docker push us-central1-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
-          docker push us-central1-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
+          docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/$GOOGLE_PROJECT/images/$IMAGE_NAME:latest
+          docker tag $IMAGE_NAME:latest us-central1-docker.pkg.dev/$GOOGLE_PROJECT/images/$IMAGE_NAME:$GIT_TAG
+          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/images/$IMAGE_NAME:latest
+          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/images/$IMAGE_NAME:$GIT_TAG
