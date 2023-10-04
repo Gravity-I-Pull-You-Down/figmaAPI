@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Run the server in production mode
-CMD npm run server:prod
+CMD ["npm", "run", "server:prod", "--host=0.0.0.0"]
 
 # Remove source code from production image
 # RUN rm -Rf src
