@@ -3,7 +3,7 @@ name: Build and Push Python Image to Google Cloud Platform
 on:
   push:
     branches: [master]
-  pull-request:
+  pull_request:
     branch: [master]
 jobs:
   build-push-gcr:
@@ -18,8 +18,8 @@ jobs:
 
       - uses: google-github-actions/setup-gcloud@master
         with:
-          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          project_id: ${{ env.PROJECT_ID }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CRED }}
+          project_id: ${{ secrets.GOOGLE_PROJECT }}
           export_default_credentials: true
 
       - name: Build Docker Image
@@ -39,10 +39,10 @@ jobs:
         env:
           GIT_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
         run: |-
-          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
-          docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
-          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
-          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+          docker tag $IMAGE_NAME:latest gcr.io/$GOOGLE_PROJECT/$IMAGE_NAME:latest
+          docker tag $IMAGE_NAME:latest gcr.io/$GOOGLE_PROJECT/$IMAGE_NAME:$GIT_TAG
+          docker push gcr.io/$GOOGLE_PROJECT/$IMAGE_NAME:latest
+          docker push gcr.io/$GOOGLE_PROJECT/$IMAGE_NAME:$GIT_TAG
 
       - name: Push Docker Image to Artifact Registry
         env:
