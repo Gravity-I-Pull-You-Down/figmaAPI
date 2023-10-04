@@ -52,3 +52,7 @@ jobs:
           docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo/test:$GIT_TAG
           docker push us-central1-docker.pkg.dev/figmaapi/demo/test:latest
           docker push us-central1-docker.pkg.dev/figmaapi/demo/test:$GIT_TAG
+
+      - name: Restart container
+        run: |-
+          gcloud compute instances update-container instance-1 --zone us-central1-a --container-image=us-central1-docker.pkg.dev/figmaapi/demo/test:latest
