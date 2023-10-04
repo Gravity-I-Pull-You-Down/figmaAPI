@@ -18,6 +18,6 @@ RUN npm run build
 CMD npm run server:prod
 
 # Remove source code from production image
-RUN rm -Rf src
+# RUN rm -Rf src
 
-EXPOSE 8080 
+EXPOSE 8000
