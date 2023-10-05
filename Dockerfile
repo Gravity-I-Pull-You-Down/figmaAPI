@@ -20,4 +20,4 @@ CMD ["npm", "run", "server:prod", "--host=0.0.0.0"]
 # Remove source code from production image
 # RUN rm -Rf src
 
-EXPOSE 8000
+EXPOSE 8001
