@@ -23,7 +23,7 @@ jobs:
           export_default_credentials: true
 
       - name: Build Docker Image
-        run: docker build -t test:latest .
+        run: docker-compose up --build -d
 
       # - name: Automatic Tagging of Releases
       #   id: increment-git-tag
@@ -48,11 +48,11 @@ jobs:
         env:
           GIT_TAG: V0.1
         run: |-
-          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo/test2:latest
-          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo/test2:$GIT_TAG
-          docker push us-central1-docker.pkg.dev/figmaapi/demo/test2:latest
-          docker push us-central1-docker.pkg.dev/figmaapi/demo/test2:$GIT_TAG
+          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo/figmaapi:latest
+          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo/figmaapi:$GIT_TAG
+          docker push us-central1-docker.pkg.dev/figmaapi/demo/figmaapi:latest
+          docker push us-central1-docker.pkg.dev/figmaapi/demo/figmaapi:$GIT_TAG
 
       - name: Restart container
         run: |-
-          gcloud compute instances update-container instance-1 --zone us-central1-a --container-image=us-central1-docker.pkg.dev/figmaapi/demo/test2:latest
+          gcloud compute instances update-container instance-1 --zone us-central1-a --container-image=us-central1-docker.pkg.dev/figmaapi/demo/figmaapi:latest
