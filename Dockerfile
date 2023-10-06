@@ -1,12 +1,19 @@
 # Production Dockerfile
 FROM node:16-alpine
 
-WORKDIR /app
+RUN apk add --no-cache git
+RUN apk add --no-cache openssh
+
+WORKDIR /data
 
 # Copy package.json and package-lock.json files first
 COPY package*.json ./
 
 # Install dependencies
+RUN git clone -b master https://github.com/Gravity-I-Pull-You-Down/figmaAPI.git /data/app
+
+WORKDIR /data/app
+
 RUN npm install
 
 COPY . .

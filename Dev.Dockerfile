@@ -1,4 +1,4 @@
-# Development Dockerfile used with docker-compose 
+# Production Dockerfile
 FROM node:16-alpine
 
 WORKDIR /app
@@ -11,4 +11,13 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+# Build application
+RUN npm run build
+
+# Run the server in production mode
+CMD ["npm", "run", "server:prod", "--host=0.0.0.0"]
+
+# Remove source code from production image
+# RUN rm -Rf src
+
+EXPOSE 8001
