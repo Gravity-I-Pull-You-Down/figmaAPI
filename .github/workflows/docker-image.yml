@@ -48,10 +48,10 @@ jobs:
         env:
           GIT_TAG: V0.1
         run: |-
-          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo2/test2:latest
-          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo2/test2:$GIT_TAG
-          docker push us-central1-docker.pkg.dev/figmaapi/demo2/test2:latest
-          docker push us-central1-docker.pkg.dev/figmaapi/demo2/test2:$GIT_TAG
+          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo/test2:latest
+          docker tag test:latest us-central1-docker.pkg.dev/figmaapi/demo/test2:$GIT_TAG
+          docker push us-central1-docker.pkg.dev/figmaapi/demo/test2:latest
+          docker push us-central1-docker.pkg.dev/figmaapi/demo/test2:$GIT_TAG
 
       - name: Restart container
         run: |-
